@@ -1,36 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import HeadingComponent from "./Heading";
-
-/**
- * Header Component
-    - Search
-    - Navigation
- * Body Component
-    - Resturant 
- * Footer Component
-    - copyright
-*/
-
-const HeaderComponent = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img src="https://marketplace.canva.com/EAFpeiTrl4c/2/0/1600w/canva-abstract-chef-cooking-restaurant-free-logo-a1RYzvS1EFo.jpg" />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-var resList = [
+const resList = [
   {
     card: {
       card: {
@@ -226,47 +194,4 @@ var resList = [
   },
 ];
 
-const RestaurantCardComponent = (prop) => {
-const {resData} = prop;
-
-  return (
-    <div className="res-card">
-      <img
-        className="dishPic"
-        src={"https://media-assets.swiggy.com/swiggy/image/upload/" + resData.card.card.info.cloudinaryImageId}
-      />
-      <h3>{resData.card.card.info.name}</h3>
-      <h4>{resData.card.card.info.cuisines.join(", ")}</h4>
-      <h4>Rating: {resData.card.card.info.avgRating}</h4>
-      <h4>{resData.card.card.info.sla.deliveryTime}</h4>
-    </div>
-  );
-};
-
-const BodyComponent = () => {
-  return (
-    <div className="body">
-      <div className="search">search</div>
-      <div className="res-container">
-        {
-          resList.map((restaurant) => (
-            <RestaurantCardComponent resData={restaurant} key={restaurant.card.card.info.id}/>
-          ))
-        }
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <HeaderComponent />
-      <BodyComponent />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
+export default resList;
